@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+      integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+      crossorigin="anonymous"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Volkhov&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <title>Giphy Search Engine</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>Giphy Search</header>
+      <div id="results">  </div>
+      <div class="toolbar">
+        <!-- 
+          add tools:
+          1. a select box which determines the number of results to return 
+          2. a plus button which, when clicked, opens a window to add a button
+          3. a filter button which opens a dropdown menu with filter options
+        -->
+        <button id="custom-button-menu" class="tray-button"><i class="far fa-plus-square"></i></button>
+        <button id="remove-button-menu"
+        <button id="clear-results" class="tray-button"><i class="fas fa-eraser"></i></button>
+      </div>
+      <div id="tray">
+        <button data-query="dog" class="search">dogs</button>
+        <button data-query="cat" class="search">cats</button>
+        <button data-query="horse" class="search">horses</button>
+        <button data-query="parrot" class="search">parrots</button>
+        <button data-query="emu" class="search">emus</button>
+        <button data-query="camel" class="search">camels</button>
+        <button data-query="ducks" class="search">ducks</button>
+      </div>
+      <div id="add-button-menu" class="visible">
+        <h3>add a custom button</h3>
+        <form >
+        <label for="button-name">button name:</label>
+        <input type="text" id="button-name" required/>
+        <label for="search-term">search term or phrase:</label>
+        <input type="text" id="search-term" required/>
+
+        <input type="submit" id="process-add-button" value = "+"></input>
+      </form>
+      
+      <button id="cancel-add-button"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+    <script src="assets/javascript/script.js"></script>
+  </body>
+</html>
