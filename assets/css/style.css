@@ -8,7 +8,7 @@ body {
   flex-direction: column;
   margin: 0;
   background-color: #f5f5f5;
-  font-family: "Volkhov", serif;
+  font-family: "Chewy", cursive;
 }
 
 .container {
@@ -19,26 +19,76 @@ body {
   align-items: center;
   justify-content: center;
 }
+#giphy-logo {
+  border-left: solid 1px #f1f1f1;
+  border-right: solid 1px #f1f1f1;
+  height: 40px;
+  width: 111px;
+  background-image: url("../images/Poweredby_100px-Black_VertText.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 15px;
+}
+.tab {
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+  padding: 0 10px;
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+  border-top: solid 1px #1f1f1f;
+  border-left: solid 1px #1f1f1f;
+  border-right: solid 1px #1f1f1f;
+  box-sizing: border-box;
+  margin: 0 5px;
+}
+.tab:hover {
+  border-color: royalblue;
+  cursor: default;
+}
+.active-tab {
+  background-color: #f1f1f1;
+  color: #1f1f1f;
+}
 
 header {
   width: 100%;
+  height: 40px;
   text-align: center;
   line-height: 1.6em;
   font-size: 1.6em;
-  padding: 10px 0;
   border-radius: 0 0 15px 15px;
   background-color: #1f1f1f;
   color: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+#display {
+  flex: 1 0 auto;
+  width: 100%;
+}
+#none {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 100%;
 }
 
-#results {
-  width: 100%;
-  flex: 1 0 auto;
+#results,
+#favorites {
   background-color: #f3f3f3;
   color: #1f1f1f;
   column-width: 300px;
   padding: 5px;
   column-rule: 2px dotted #1f1f1f;
+  box-sizing: border-box;
+  min-width: 100%;
 }
 
 .toolbar {
@@ -52,9 +102,32 @@ header {
   justify-content: space-evenly;
 }
 
+#ratings-div {
+  position: relative;
+}
+
+#dropdown {
+  position: absolute;
+  background-color: #1f1f1f;
+  width: 300px;
+  column-count: 2;
+  height: 0px;
+  text-align: left;
+  padding-left: 10px;
+  padding-top: 10px;
+  border-radius: 0 0 10px 10px;
+  overflow: hidden;
+}
+form.dropdown-form {
+  display: block;
+}
+input.dropdown-input {
+  width: 15px;
+  height: 15px;
+}
 #tray {
   width: 100%;
-  height: 30vh;
+  height: 150px;
   background-color: #f3f3f3;
   color: #1f1f1f;
   display: flex;
@@ -83,7 +156,28 @@ header {
 #add-button-menu.visible {
   display: none;
 }
-form {
+
+#remove-button-menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 375px;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+  color: #1f1f1f;
+  border-radius: 15px;
+  border: groove 3px #1f1f1f;
+  z-index: 100;
+}
+
+#remove-button-menu.visible {
+  display: none;
+}
+
+form.menu {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -122,7 +216,7 @@ button,
   font-family: inherit;
   border: none;
   border-radius: 10px;
-  font-size: 2rem;
+  font-size: 14px;
   padding: 0.5rem;
   margin: 10px;
   text-align: center;
@@ -140,19 +234,20 @@ button:hover,
 }
 
 .gif {
+  -webkit-column-break-inside: avoid;
   break-inside: avoid;
   page-break-inside: avoid;
-  width: 200px;
-  height: 187px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   background-color: #1f1f1f;
   border-radius: 10px;
   margin: 5px;
   border: solid 1px #1f1f1f;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .gif-tools {
@@ -205,4 +300,16 @@ p {
   background-color: #f1f1f1;
   color: #1f1f1f;
   font-size: 20px;
+}
+
+.selected {
+  background-color: royalblue;
+}
+
+#button-tray {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-top: 2px solid #1f1f1f;
+  border-bottom: 2px solid #1f1f1f;
 }

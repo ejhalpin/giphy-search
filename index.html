@@ -11,7 +11,7 @@
       integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
       crossorigin="anonymous"
     />
-    <link href="https://fonts.googleapis.com/css?family=Volkhov&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Chewy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
@@ -19,8 +19,16 @@
   </head>
   <body>
     <div class="container">
-      <header>Giphy Search</header>
-      <div id="results">  </div>
+      <header>
+        <div id="gif-search-tab" class="tab active-tab" data-name="results">Giphy Search</div>
+        <div id="fav-tab" class="tab" data-name="favorites">Favorites</div>
+        <div id="giphy-logo"></div>
+      </header>
+      <div id="display" data-showing="none"> 
+        <div id="none">
+          <h4>Click a button below to retrieve some gifs</h4>
+        </div>   
+      </div>
       <div class="toolbar">
         <!-- 
           add tools:
@@ -28,22 +36,48 @@
           2. a plus button which, when clicked, opens a window to add a button
           3. a filter button which opens a dropdown menu with filter options
         -->
+        <div id="ratings-div">
+          <span id="ratings-label">ratings</span>&nbsp;
+          <span id="expand" data-expand="0"><i class="fas fa-caret-down"></i></span>
+          <div id="dropdown">
+            <form class="dropdown-form">
+                <input type="checkbox" value="y" id="y" name="y" class="dropdown-input" checked> Y <br/>
+                <input type="checkbox" value="g" id="g" name="g" class="dropdown-input" checked> G <br/>
+                <input type="checkbox" value="pg-13" id="pg-13" name="pg-13" class="dropdown-input" checked> PG-13 <br/>
+                <input type="checkbox" value="pg" id="pg" name="pg" class="dropdown-input" checked> PG <br/>
+                <input type="checkbox" value="r" id="r" name="r" class="dropdown-input" checked> R <br/>
+
+            </form>
+              
+          </div>
+          
+        </div>
+        <div id="select-div">
+          results:
+            <select id="results-count">
+                <option value=1>1</option>
+                <option value=5>5</option>
+                <option value=10 selected>10</option>
+                <option value=20>20</option>
+              </select>
+        </div>
+        
         <button id="custom-button-menu" class="tray-button"><i class="far fa-plus-square"></i></button>
-        <button id="remove-button-menu"
+        <button id="remove-custom-button-menu" class="tray-button"><i class="far fa-minus-square"></i></button>
         <button id="clear-results" class="tray-button"><i class="fas fa-eraser"></i></button>
       </div>
       <div id="tray">
-        <button data-query="dog" class="search">dogs</button>
-        <button data-query="cat" class="search">cats</button>
-        <button data-query="horse" class="search">horses</button>
-        <button data-query="parrot" class="search">parrots</button>
-        <button data-query="emu" class="search">emus</button>
-        <button data-query="camel" class="search">camels</button>
-        <button data-query="ducks" class="search">ducks</button>
+        <button id="dogs" data-query="dog" class="search">dogs</button>
+        <button id="cats" data-query="cat" class="search">cats</button>
+        <button id="horses" data-query="horse" class="search">horses</button>
+        <button id="parrots" data-query="parrot" class="search">parrots</button>
+        <button id="emus" data-query="emu" class="search">emus</button>
+        <button id="camels" data-query="camel" class="search">camels</button>
+        <button id="ducks" data-query="ducks" class="search">ducks</button>
       </div>
       <div id="add-button-menu" class="visible">
         <h3>add a custom button</h3>
-        <form >
+        <form class = "menu">
         <label for="button-name">button name:</label>
         <input type="text" id="button-name" required/>
         <label for="search-term">search term or phrase:</label>
@@ -53,6 +87,13 @@
       </form>
       
       <button id="cancel-add-button"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="remove-button-menu" class="visible">
+        <h3>remove a button</h3>
+        <div id="button-tray"></div>
+        <button id="remove-selected">remove selected</button>
+        <button id="remove-all">remove all</button>
+        <button id="cancel-remove">cancel</button>
       </div>
     </div>
     <script src="assets/javascript/script.js"></script>
