@@ -8,7 +8,28 @@ body {
   flex-direction: column;
   margin: 0;
   background-color: #f5f5f5;
-  font-family: "Chewy", cursive;
+  /* font-family: "Amatic SC", cursive; */
+  /* font-family: "Boogaloo", cursive; */
+  /* font-family: "Architects Daughter", cursive; */
+  /* font-family: "Shadows Into Light Two", cursive; */
+  font-family: "Schoolbell", cursive;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f1f1f;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: royalblue;
 }
 
 .container {
@@ -220,6 +241,15 @@ button,
   padding: 0.5rem;
   margin: 10px;
   text-align: center;
+}
+
+select {
+  border: none;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+  color: #1f1f1f;
+  font-family: inherit;
+  font-size: 14px;
 }
 
 button:hover,

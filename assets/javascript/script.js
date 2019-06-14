@@ -131,6 +131,7 @@ $("input:checkbox").on("change", function() {
 });
 
 function fetchGifs() {
+  console.log(display.attr("data-showing"));
   var queryStart = "http://api.giphy.com/v1/gifs/search?q=";
   var apiKey = "&api_key=PXSc4twP7Myl2bmlCJngE5Nxx91QMdZz";
   var limit = "&limit=";
@@ -204,10 +205,9 @@ function fetchGifs() {
     } else {
       resultsDiv.css("columns", "300px " + maxCols);
     }
-    if (display.attr("data-showing") === "none") {
-      $(display.children().get(0)).detach();
-    }
+    $(display.children().get(0)).detach();
     display.append(resultsDiv);
+    display.attr("data-showing", "results");
     var tabs = $(".tab").toArray();
     for (var i = 0; i < tabs.length; i++) {
       if ($(tabs[i]).hasClass("active-tab")) {
