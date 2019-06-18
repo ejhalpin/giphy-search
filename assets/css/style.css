@@ -138,6 +138,7 @@ header {
   padding-top: 10px;
   border-radius: 0 0 10px 10px;
   overflow: hidden;
+  transition: height 0.5s;
 }
 form.dropdown-form {
   display: block;
@@ -292,6 +293,7 @@ button:hover,
   align-items: center;
   justify-content: space-evenly;
   overflow: hidden;
+  transition: height 0.5s;
 }
 
 #embed {

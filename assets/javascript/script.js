@@ -249,7 +249,7 @@ function addTools(gifBox) {
         .get(0)
     );
 
-    tooltray.animate({ height: "20px" }, 500);
+    tooltray.css("height", "20px");
   });
   gifBox.on("mouseleave", function() {
     var tooltray = $(
@@ -259,7 +259,8 @@ function addTools(gifBox) {
     );
     var infoShowing = parseInt($(this).attr("data-info-showing"));
     var embedShowing = parseInt($(this).attr("data-embed-showing"));
-    tooltray.animate({ height: "0px" }, 500, function() {
+    tooltray.css("height", "0px");
+    setTimeout(function() {
       if (infoShowing) {
         $(".info-display").remove();
         gifBox.attr("data-info-showing", "0");
@@ -268,7 +269,7 @@ function addTools(gifBox) {
         $(".embed-display").remove();
         gifBox.attr("data-embed-showing", "0");
       }
-    });
+    }, 500);
   });
 }
 
@@ -337,13 +338,14 @@ function toggleInfo() {
       div.append(p);
     }
     tooltray.append(div);
-    tooltray.animate({ height: "100%" }, 500);
+    tooltray.css("height", "100%");
     gif.attr("data-info-showing", "1");
   } else {
-    tooltray.animate({ height: "20px" }, 500, function() {
+    tooltray.css("height", "20px");
+    setTimeout(function() {
       $(".info-display").remove();
       gif.attr("data-info-showing", "0");
-    });
+    }, 500);
   }
 }
 
@@ -411,16 +413,23 @@ $("#expand").on("click", function() {
   var upChev = '<i class="fas fa-caret-up"></i>';
   var state = parseInt($(this).attr("data-expand")); //0 is collapsed, 1 is expanded
   if (state) {
-    $("#dropdown").animate({ height: "0px" }, 200);
+    $("#dropdown").css("height", "0px");
     expand.attr("data-expand", "0");
     $(this)
       .empty()
       .append(downChev);
   } else {
-    $("#dropdown").animate({ height: "100px" }, 200);
+    $("#dropdown").css("height", "100px");
     expand.attr("data-expand", "1");
     $(this)
       .empty()
       .append(upChev);
+  }
+});
+
+$("#dropdown").on("focusout", function() {
+  var downChev = '<i class="fas fa-caret-down"></i>';
+  if (parseInt($("#expand").attr("data-expand"))) {
+    $("#expand").trigger("click");
   }
 });
