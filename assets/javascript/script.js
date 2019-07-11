@@ -132,7 +132,7 @@ $("input:checkbox").on("change", function() {
 
 function fetchGifs() {
   console.log(display.attr("data-showing"));
-  var queryStart = "http://api.giphy.com/v1/gifs/search?q=";
+  var queryStart = "https://api.giphy.com/v1/gifs/search?q=";
   var apiKey = "&api_key=PXSc4twP7Myl2bmlCJngE5Nxx91QMdZz";
   var limit = "&limit=";
 
